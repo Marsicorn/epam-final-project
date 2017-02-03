@@ -1,0 +1,54 @@
+#app {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  margin: 0;
+  min-height: fit-content;
+  background-image: linear-gradient(to top, #25373D, #282830);
+  color: #E6DCDB;
+  font-family: 'Antic', sans-serif;
+}
+
+.navigation {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.message {
+  text-align: center;
+  padding: 50px;
+  font-size: 16px;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+.link {
+  padding: 5px;
+  color: #F54F53;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    color: lightgray;
+    text-decoration: none;
+    background-color: #F54F53;
+  }
+}
+
+.chart {
+  width: fit-content;
+  margin: auto;
+}
+
+.recharts-area-area:hover {
+  cursor: pointer;
+}

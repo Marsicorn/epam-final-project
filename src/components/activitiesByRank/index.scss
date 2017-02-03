@@ -1,0 +1,57 @@
+#productiveList,
+#distractingList {
+  flex-grow: 1;
+  width: fit-content;
+  margin: 0 5%;
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  list-style: none;
+  background-color: rgba(0,0,0,0.2);
+  color: ivory;
+  font-size: 14px;
+  line-height: 2em;
+}
+
+#productiveList {
+  order: 1;
+
+  & > .activity .actName {
+    color: #7A9A75;
+
+    &:hover {
+      color: lightgray;
+    }
+  }
+}
+
+#distractingList {
+  order: 2;
+
+  & > .activity .actName {
+    color: #F54F53;
+
+    &:hover {
+      color: lightgray;
+    }
+  }
+}
+
+.activity {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.actName,
+.actTimeSpend {
+  margin: 0 5px;
+}
+
+.actName {
+  font-weight: bold;
+}

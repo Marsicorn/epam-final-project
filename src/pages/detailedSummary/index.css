@@ -1,0 +1,10 @@
+#actsByRank {
+  display: flex;
+  align-content: center;
+  align-items: flex-start;
+  min-height: fit-content;
+  justify-content: center;
+  flex-flow: row wrap;
+  padding: 20px; }
+
+/*# sourceMappingURL=index.css.map */
