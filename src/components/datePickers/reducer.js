@@ -9,7 +9,7 @@ const initialState = {
 function dateReducer(state = initialState, action) {
     switch (action.type) {
         case UPDATE_DATE:
-            return state = action.date;
+            return action.date;
 
         default:
             return state;

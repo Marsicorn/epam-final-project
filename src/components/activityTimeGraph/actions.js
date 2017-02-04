@@ -10,13 +10,13 @@ function setActivityTimes(activityName, activityType, date) {
         ActivityByHourData
             .get(date, activityName)
             .then((data) => {
-                let timeLineUnit = (date.from === date.to ) ? BY_HOUR : BY_DAY;
+                let timeLineUnit = (date.from === date.to) ? BY_HOUR : BY_DAY;
                 let activityByHour = ActivityByHourData.format(data, timeLineUnit);
                 dispatch({
                     type: SET_ACTIVITY_NAME,
                     data: {
-                        activityName: activityName,
-                        activityType: activityType,
+                        activityName,
+                        activityType,
                         times: activityByHour
                     }
                 });

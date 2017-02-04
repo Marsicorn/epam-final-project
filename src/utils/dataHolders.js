@@ -1,3 +1,4 @@
+import moment from 'moment';
 import ProductivityLevels from './productivityLevels';
 import {
     SummaryRequest,
@@ -6,20 +7,6 @@ import {
     ActivityByHourRequest
 } from './fetchData';
 
-const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-];
 const BY_DAY = 'BY_DAY';
 const BY_HOUR = 'BY_HOUR';
 
@@ -36,15 +23,14 @@ class Data {
     }
 
     static format(data) {
-        let formattedData;
         try {
-            formattedData = JSON.parse(data);
+            let formattedData = JSON.parse(data);
             if (!formattedData.hasOwnProperty('rows'))
                 throw new Error();
+            else return formattedData;
         } catch (error) {
-            // formattedData = undefined;
+            return undefined;
         }
-        return formattedData;
     }
 }
 
@@ -56,7 +42,9 @@ class SummaryTimeData extends Data{
 
     static format(jsonData) {
         const data = super.format(jsonData);
-        if (typeof data === 'undefined') return [];
+        if (typeof data === 'undefined') {
+            return [];
+        }
 
         const INITIAL_VALUE = 0;
 
@@ -80,7 +68,9 @@ class SummaryData extends Data{
 
     static format(jsonData) {
         const data = super.format(jsonData);
-        if (typeof data === 'undefined') return [];
+        if (typeof data === 'undefined') {
+            return [];
+        }
 
         let percents = {},
             time = {},
@@ -99,7 +89,9 @@ class SummaryData extends Data{
             .map((productivityItem) => productivityItem[1])
             .reduce((acc, secondsSpent) => acc + secondsSpent, INITIAL_VALUE);
 
-        if (fullTime < 60) return [];
+        if (fullTime < 60) {
+            return [];
+        }
 
         let levelName = '';
         let summary = {
@@ -157,8 +149,8 @@ function getAngles(percents) {
 }
 
 function timeToString(seconds) {
-    let hours = Math.floor(seconds/3600);
-    let minutes = Math.floor(seconds/60) % 60;
+    let hours = Math.floor(seconds / 3600);
+    let minutes = Math.floor(seconds / 60) % 60;
     return (hours ? hours + 'h ' : '') + minutes + 'm';
 }
 
@@ -172,13 +164,13 @@ class SummaryByHourData extends Data{
         const data = super.format(jsonData);
         if (typeof data === 'undefined') return [];
 
-        let getDate = (timelineUnit === BY_HOUR) ? getItemHour : getItemDay;
+        let timeFormat = (timelineUnit === BY_HOUR) ? 'H[h]' : 'DD MMMM';
 
         let chartData = [];
         let chartItem = createNewChartItem();
 
         data.rows.forEach(function(item) {
-            let itemDate = getDate(item[0]);
+            let itemDate = moment(item[0]).format(timeFormat);
             if (itemDate !== chartItem.name) {
                 if (chartItem.name) {
                     chartData.push(chartItem);
@@ -186,20 +178,12 @@ class SummaryByHourData extends Data{
                 chartItem = createNewChartItem(itemDate);
             }
             let level = ProductivityLevels.getLevelName(item[3]);
-            chartItem[level] += Math.sign(item[3]) * Math.round((item[1]/60));
+            chartItem[level] += Math.sign(item[3]) * Math.round(item[1] / 60);
         });
         chartData.push(chartItem);
 
         return chartData;
     }
-}
-
-function getItemHour(date) {
-    return +date.substring(11, 13);
-}
-
-function getItemDay(date) {
-    return +date.substring(8, 10) + ' ' + months[+date.substring(5, 7) - 1];
 }
 
 function createNewChartItem(date = '') {
@@ -229,12 +213,10 @@ class ActivitiesByRankData extends Data{
         while ((productiveList.length < 5 || distractingList.length < 5) && data.rows.length > i) {
             item = data.rows[i++];
 
-            let minutes = Math.floor(item[1]/60);
-            let hours = Math.floor(minutes / 60);
             let activity = {
                 name: item[3],
                 level: +item[5],
-                time:`${hours ? hours + 'h' : ''} ${minutes ? minutes % 60 +'m' : ''}`
+                time: timeToString(item[1])
             };
 
             if (activity.time.length > 1) {
@@ -262,9 +244,11 @@ class ActivityByHourData extends Data{
 
     static format(jsonData, timelineUnit) {
         const data = super.format(jsonData);
-        if (typeof data === 'undefined') return [];
+        if (typeof data === 'undefined') {
+            return [];
+        }
 
-        let getDate = (timelineUnit === BY_HOUR) ? getItemHour : getItemDay;
+        let timeFormat = (timelineUnit === BY_HOUR) ? 'H[h]' : 'DD MMMM';
 
         let chartData = [];
         let chartItem = {
@@ -273,7 +257,7 @@ class ActivityByHourData extends Data{
         };
 
         data.rows.forEach(function (item) {
-            let itemDate = getDate(item[0]);
+            let itemDate = moment(item[0]).format(timeFormat);
             if (itemDate !== chartItem.name) {
                 if (chartItem.time !== 0) {
                     chartData.push(chartItem);
@@ -284,7 +268,7 @@ class ActivityByHourData extends Data{
                 }
                 chartItem.name = itemDate;
             }
-            chartItem.time += Math.round((item[1]/60));
+            chartItem.time += Math.round(item[1] / 60);
         });
         return chartData;
     }
@@ -298,4 +282,5 @@ export {
     ActivitiesByRankData,
     ActivityByHourData,
     BY_DAY,
-    BY_HOUR};
+    BY_HOUR
+};

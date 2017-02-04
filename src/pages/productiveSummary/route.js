@@ -7,7 +7,7 @@ import { PRODUCTIVE_SUM } from '../paths';
 
 function ProductiveSummaryPage() {
     return (
-        <DetailedSummaryPage activityType={PRODUCTIVE}/>
+        <DetailedSummaryPage activityType={ PRODUCTIVE }/>
     );
 }
 

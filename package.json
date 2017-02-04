@@ -9,18 +9,19 @@
     "https": "^1.0.0"
   },
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1",
     "lodash": "^4.17.4",
+    "moment": "^2.17.1",
     "node": "0.0.0",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
     "react-router": "^3.0.2",
     "react-router-redux": "^4.0.7",
-    "recharts": "^0.20.5"
+    "recharts": "^0.20.5",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

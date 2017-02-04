@@ -1,7 +1,8 @@
 import HomePage from './home';
-import HomeRoutes from './home';
+import HomeRoute from './route';
 
 export {
-    HomePage, HomeRoutes
+    HomePage,
+    HomeRoute
 }
 

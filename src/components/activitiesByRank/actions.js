@@ -9,9 +9,9 @@ function setActivitiesByRank(date) {
             .get(date)
             .then((data) => {
                 let activities = ActivitiesByRankData.format(data);
-                dispatch( {
+                dispatch({
                     type: SET_ACTS_BY_RANK,
-                    activities: activities
+                    activities
                 })
             });
     }

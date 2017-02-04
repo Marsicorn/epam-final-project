@@ -6,7 +6,7 @@ const initialState = {};
 function summaryCircleChartReducer(state = initialState, action) {
     switch (action.type) {
         case SET_SUMMARY:
-            return state = action.summary;
+            return action.summary;
 
         default:
             return state;

@@ -5,7 +5,7 @@ import './index.css';
 export default class Header extends React.Component {
     render() {
         return (
-            <header className="row">
+            <header className='row'>
                 <TimeSummary />
                 <DatePickers />
             </header>

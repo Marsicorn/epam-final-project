@@ -34,51 +34,52 @@ class SummaryCircleChart extends React.Component {
     }
 
     renderSlices() {
-        let slices = [];
-        slices.push( this.props.summary.productivity.map((item, key) => {
+        return this.props.summary.productivity.map((item, key) => {
             return (
                 <Slice
                     sliceLabel='sliceInfo'
-                    time={item.time}
-                    percentage={item.percentage}
-                    key={key}
-                    startAngle={item.angles.startAngle}
-                    endAngle={item.angles.endAngle}
-                    type={item.level}
-                />
+                    time={ item.time }
+                    percentage={ item.percentage }
+                    key={ key }
+                    startAngle={ item.angles.startAngle }
+                    endAngle={ item.angles.endAngle }
+                    type={ item.level } />
             );
-        })
-        );
-        return slices;
+        });
     }
 
     isDataDefined() {
-        return (typeof this.props.summary.productivity !== 'undefined'
-        && this.props.summary.productivity.length > 0)
+        return (
+            typeof this.props.summary.productivity !== 'undefined'
+            && this.props.summary.productivity.length > 0
+        )
     }
 
     render() {
         if (this.isDataDefined())
             return (
-                <div id="summaryCircleChart">
-                    <svg width={CHART_SIZE} height={CHART_SIZE}>
-                        <g transform={"translate(" + CHART_SIZE / 2 + "," + CHART_SIZE / 2 + ")"}>
-                            {this.renderSlices()}
-                            <text x={0} y={0}
-                                  fontFamily="sans-serif"
-                                  fontSize={TEXT_SIZE} fill="ivory"
-                                  textAnchor="middle"
-                                  alignmentBaseline="middle">
+                <div id='summaryCircleChart'>
+                    <svg width={ CHART_SIZE } height={ CHART_SIZE }>
+                        <g transform={ `translate( ${ CHART_SIZE / 2 },${ CHART_SIZE / 2 })` }>
+                            { this.renderSlices() }
+                            <text
+                                x={ 0 }
+                                y={ 0 }
+                                fontFamily='sans-serif'
+                                fontSize={ TEXT_SIZE }
+                                fill='ivory'
+                                textAnchor='middle'
+                                alignmentBaseline='middle'>
                                 { this.props.summary.pulse }
                             </text>
                         </g>
                     </svg>
-                    <div id="sliceInfo"></div>
+                    <div id='sliceInfo'></div>
                 </div>
             );
         else {
             return (
-                <div className="message">
+                <div className='message'>
                     No data registered
                 </div>
             );

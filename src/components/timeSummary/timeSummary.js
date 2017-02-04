@@ -13,8 +13,8 @@ class TimeSummary extends React.Component {
 
     render() {
         return (
-            <div id="timeSummary" className="">
-                {`Logged so far: ${ this.props.time.timeSummary }`}
+            <div id='timeSummary'>
+                { `Logged so far: ${ this.props.time.timeSummary }` }
             </div>
         );
     }

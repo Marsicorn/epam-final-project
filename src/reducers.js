@@ -5,7 +5,7 @@ import { SummaryCircleChartReducer } from './components/summaryCircleChart';
 import { ActivitiesReducer } from './components/activitiesTimeGraph';
 import { TimeSummaryReducer } from './components/timeSummary';
 import { ActivityReducer } from './components/activityTimeGraph';
-import DateReducer from './components/datePickers/reducer';
+import { DateReducer } from './components/datePickers';
 
 export default combineReducers({
     routing: routerReducer,

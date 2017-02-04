@@ -6,7 +6,7 @@ const initialState = [];
 function activitiesReducer(state = initialState, action) {
     switch (action.type) {
         case SET_DETAILED_SUMMARY:
-            return state = action.actsTimeSeries;
+            return action.actsTimeSeries;
 
         default:
             return state;

@@ -8,7 +8,7 @@ function setDetailedSummary(date) {
         SummaryByHourData
             .get(date)
             .then((data) => {
-                let timeLineUnit = (date.from === date.to ) ? BY_HOUR : BY_DAY;
+                let timeLineUnit = (date.from === date.to) ? BY_HOUR : BY_DAY;
                 let summaryByHour = SummaryByHourData.format(data, timeLineUnit);
                 dispatch({
                     type: SET_DETAILED_SUMMARY,

@@ -32,6 +32,6 @@ server.on('request', (request, response) => {
     getData.end();
     getData.on('error', function(err) {
         console.error('error:', err.code);
-        response.end("");
+        response.end('');
     });
 });

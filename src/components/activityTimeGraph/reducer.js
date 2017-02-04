@@ -10,10 +10,10 @@ const initialState = {
 function activityReducer(state = initialState, action) {
     switch (action.type) {
         case SET_ACTIVITY_TIMES:
-            return state = action.data;
+            return action.data;
 
         case SET_ACTIVITY_NAME:
-            return state = action.data;
+            return action.data;
 
         default:
             return state;

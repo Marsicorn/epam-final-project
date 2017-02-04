@@ -14,9 +14,9 @@ export default class ActivitySummaryPage extends React.Component {
             <div>
                 <ActivityTimeGraph />
 
-                <div className="navigation"
-                     style={{transform: 'rotate(180deg)'}}
-                     onClick={browserHistory.goBack}>
+                <div className='navigation'
+                     style={{ transform: 'rotate(180deg)' }}
+                     onClick={ browserHistory.goBack }>
                     <Navigation />
                 </div>
             </div>

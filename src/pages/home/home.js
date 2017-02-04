@@ -12,11 +12,10 @@ export default class HomePage extends React.Component {
     render() {
         return (
             <div>
+                <SummaryCircleChart />
 
-                <SummaryCircleChart/>
-
-                <div className="navigation">
-                    <Link to={ DETAILED_SUMMARY}>
+                <div className='navigation'>
+                    <Link to={ DETAILED_SUMMARY }>
                         <Navigation />
                     </Link>
                 </div>

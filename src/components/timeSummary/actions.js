@@ -9,7 +9,7 @@ function setTime(date) {
             .get(date)
             .then((data) => {
                 let timeLogged = SummaryTimeData.format(data);
-                dispatch( {
+                dispatch({
                     type: SET_TIME,
                     timeSummary: timeLogged
                 })

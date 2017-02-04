@@ -30,11 +30,14 @@ export default function DetailedSummaryPage(props) {
                 <ActivitiesTimeGraph activityType={ `${shouldDrawProductive ? PRODUCTIVE : ' '}
                     ${shouldDrawDistracting ? DISTRACTING : ' '}`}/>
 
-                <div className="navigation" style={{transform: 'rotate(180deg)'}} onClick={browserHistory.goBack}>
+                <div
+                    className='navigation'
+                    style={{ transform: 'rotate(180deg)' }}
+                    onClick={ browserHistory.goBack }>
                     <Navigation />
                 </div>
 
-                <div id="actsByRank">
+                <div id='actsByRank'>
                     { shouldDrawProductive ? <ActivitiesByRankLists activityType={ PRODUCTIVE } /> : '' }
                     { shouldDrawDistracting ? <ActivitiesByRankLists activityType={ DISTRACTING } /> : '' }
                 </div>

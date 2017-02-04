@@ -7,7 +7,7 @@ import { DISTRACTING_SUM } from '../paths';
 
 function DistractingSummaryPage(){
     return (
-        <DetailedSummaryPage activityType={DISTRACTING} />
+        <DetailedSummaryPage activityType={ DISTRACTING } />
     );
 }
 

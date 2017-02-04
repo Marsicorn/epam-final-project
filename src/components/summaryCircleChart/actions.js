@@ -12,7 +12,7 @@ function setSummary(date) {
                 let summary = SummaryData.format(data);
                 dispatch({
                     type: SET_SUMMARY,
-                    summary: summary
+                    summary
                 });
             });
     }

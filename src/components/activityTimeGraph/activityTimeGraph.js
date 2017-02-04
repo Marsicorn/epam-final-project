@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindAll } from 'lodash';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { setActivityTimes } from './actions';
-import ChartTooltip from '../chartTooltip';
+import { ChartTooltip } from '../chartTooltip';
 import ProductivityLevels from '../../utils/productivityLevels';
 import { PRODUCTIVE } from '../constants';
 
@@ -22,13 +22,13 @@ class ActivityTimeGraph extends React.Component {
 
     componentDidMount() {
         if (this.isActivityDefined(this.props)) {
-            this.props.dispatch(setActivityTimes(
+            this.props.dispatch( setActivityTimes(
                 this.props.actTimes.activityName,
                 this.props.actTimes.activityType,
-                this.props.date));
+                this.props.date) );
         }
         this._mounted = true;
-        window.addEventListener("resize", () => {
+        window.addEventListener('resize', () => {
             if (this._mounted)
                 this.forceUpdate();
         });
@@ -44,10 +44,10 @@ class ActivityTimeGraph extends React.Component {
 
     shouldComponentUpdate(nextProps) {
         if (this.shouldGetNewData(nextProps)) {
-            this.props.dispatch(setActivityTimes(
+            this.props.dispatch( setActivityTimes(
                 nextProps.actTimes.activityName,
                 nextProps.actTimes.activityType,
-                nextProps.date));
+                nextProps.date) );
             return false;
         }
         return true;
@@ -60,28 +60,30 @@ class ActivityTimeGraph extends React.Component {
     }
 
     renderBarChart() {
-        const CHART_WIDTH = document.body.clientWidth*0.9;
-        const CHART_HEIGHT = CHART_WIDTH*0.3;
+        const CHART_WIDTH = document.body.clientWidth * 0.9;
+        const CHART_HEIGHT = CHART_WIDTH * 0.3;
 
         return (
             <BarChart
-                width={CHART_WIDTH}
-                height={CHART_HEIGHT}
-                stackOffset="sign"
-                data={this.props.actTimes.times}>
-                <XAxis dataKey="name"/>
-                <YAxis/>
-                <CartesianGrid strokeDasharray="2 5" stroke="rgba(255,255,255,0.3)"/>
+                width={ CHART_WIDTH }
+                height={ CHART_HEIGHT }
+                stackOffset='sign'
+                data={ this.props.actTimes.times } >
+                <XAxis dataKey='name' />
+                <YAxis />
+                <CartesianGrid
+                    strokeDasharray='2 5'
+                    stroke='rgba(255,255,255,0.3)' />
                 { ChartTooltip() }
                 <Bar
-                    stackId="stack"
+                    stackId='stack'
                     dataKey='time'
                     stroke='#8884d8'
-                    fill={this.props.actTimes.activityType === PRODUCTIVE ?
+                    fill={ this.props.actTimes.activityType === PRODUCTIVE ?
                         ProductivityLevels.getLevelColor({key: 2}) :
-                        ProductivityLevels.getLevelColor({key: -2})}
-                    isAnimationActive={false}
-                />
+                        ProductivityLevels.getLevelColor({key: -2})
+                    }
+                    isAnimationActive={ false } />
             </BarChart>
         );
     }
@@ -94,13 +96,17 @@ class ActivityTimeGraph extends React.Component {
     render() {
         return (
             <div>
-                <div className="activityName"> {this.props.actTimes.activityName } </div>
+                <div className='activityName'>
+                    { this.props.actTimes.activityName }
+                </div>
                 { this.isDataDefined() ?
-                    <div className="chart">
-                        {this.renderBarChart()}
+                    <div className='chart'>
+                        { this.renderBarChart() }
                     </div>
                     :
-                    <div className="message">No data registered</div>
+                    <div className='message'>
+                        No data registered
+                    </div>
                 }
             </div>
         );
