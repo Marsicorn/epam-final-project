@@ -1,0 +1,17 @@
+#summaryCircleChart {
+  width: fit-content;
+  margin: 50px auto; }
+  #summaryCircleChart:hover {
+    cursor: pointer; }
+
+#sliceInfo {
+  margin: auto;
+  padding: 0 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: ivory;
+  text-align: center;
+  font-size: 14px;
+  line-height: 2em; }
+
+/*# sourceMappingURL=index.css.map */

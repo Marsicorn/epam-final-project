@@ -1,0 +1,17 @@
+header {
+  text-align: center;
+  padding: 10px;
+  min-height: fit-content;
+  max-width: 100%; }
+
+#date,
+#timeSummary {
+  display: inline-block;
+  margin: 10px 20px;
+  font-size: 16px;
+  font-weight: bold; }
+  #date:hover,
+  #timeSummary:hover {
+    cursor: default; }
+
+/*# sourceMappingURL=index.css.map */

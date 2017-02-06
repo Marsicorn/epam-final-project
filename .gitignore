@@ -11,6 +11,5 @@ build
 .env
 npm-debug.log
 
-# Ignore CSS & Map File
-*.css
+# Ignore Map File
 *.map

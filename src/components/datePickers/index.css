@@ -1,0 +1,40 @@
+.date__input,
+.date__button {
+  display: inline-block;
+  min-width: fit-content; }
+
+.date__button > button {
+  display: inline-block;
+  margin: 10px;
+  width: 50px;
+  text-align: center;
+  font-weight: normal;
+  border: none;
+  padding: 0 10px;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+  color: black;
+  font-size: 16px;
+  line-height: 2em; }
+  .date__button > button:hover, .date__button > button:focus {
+    background-color: #F54F53;
+    color: ivory; }
+
+.datepicker {
+  display: inline-block;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  font-weight: normal;
+  border: none;
+  padding: 0 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: ivory;
+  font-size: 14px;
+  line-height: 2em; }
+  .datepicker:hover, .datepicker:focus {
+    background: #e5e5e5;
+    color: black; }
+
+/*# sourceMappingURL=index.css.map */
