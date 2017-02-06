@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.5",
+    "create-react-app-sass": "^1.1.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
-    "https": "^1.0.0"
+    "https": "^1.0.0",
+    "react-scripts": "0.8.5"
   },
   "dependencies": {
     "jquery": "^3.1.1",
@@ -24,8 +25,8 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts-with-sass start",
+    "build": "react-scripts-with-sass build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
