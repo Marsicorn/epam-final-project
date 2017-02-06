@@ -10,7 +10,8 @@ import './index.css';
 
 class ActivitiesByRankLists extends React.Component {
     static PropTypes = {
-        activityType: PropTypes.string.isRequired
+        activityType: PropTypes.string.isRequired,
+        dispatch: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -69,7 +70,7 @@ class ActivitiesByRankLists extends React.Component {
 
         return (
             list.length > 0 ?
-            <ul id={ this.props.activityType }>
+            <ul id={ this.props.activityType + 'List' }>
                 { list }
             </ul> : null
         );

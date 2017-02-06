@@ -6,6 +6,7 @@ export default class App extends React.Component {
     static propTypes = {
         children: PropTypes.any.isRequired  
     };
+
     static getPath() {
         return '/';
     }

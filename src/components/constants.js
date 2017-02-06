@@ -1,4 +1,4 @@
-const PRODUCTIVE = 'productiveList';
-const DISTRACTING = 'distractingList';
+const PRODUCTIVE = 'productive';
+const DISTRACTING = 'distracting';
 
 export { PRODUCTIVE, DISTRACTING  };

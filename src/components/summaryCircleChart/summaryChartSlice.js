@@ -36,8 +36,15 @@ class Slice extends React.Component {
         if (!this._sliceLabel) {
             this._sliceLabel = document.getElementById(this.props.sliceLabel);
         }
+
+        const {
+            time,
+            type,
+            percentage
+        } = this.props;
+
         this._sliceLabel.textContent = 
-            `${this.props.time} ${this.props.type.replace('_', ' ')} (${this.props.percentage}%)`;
+            `${time} ${type.replace('_', ' ')} (${percentage}%)`;
     }
 
     recoverNormalSize() {
@@ -104,16 +111,18 @@ class Slice extends React.Component {
     }
 
     render() {
+        const { type } = this.props;
+
         return <path
             onMouseEnter={ this.onHover }
             onMouseLeave={ this.recoverNormalSize }
             onClick={() => {
                 browserHistory.push(
-                    ProductivityLevels.getLevelKey(this.props.type) < 0 ?
+                    ProductivityLevels.getLevelKey(type) < 0 ?
                         DISTRACTING_SUM : PRODUCTIVE_SUM
                 )}}
-            className={ 'slice_' + this.props.type }
-            fill={ ProductivityLevels.getLevelColor({name: this.props.type}) }
+            className={ 'slice_' + type }
+            fill={ ProductivityLevels.getLevelColor({name: type}) }
             d={ this.getSliceDefinition() }/>;
     }
 }

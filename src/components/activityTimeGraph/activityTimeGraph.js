@@ -11,7 +11,8 @@ import { PRODUCTIVE } from '../constants';
 class ActivityTimeGraph extends React.Component {
     static PropTypes = {
         activityName: PropTypes.string.isRequired,
-        activityType: PropTypes.string.isRequired
+        activityType: PropTypes.string.isRequired,
+        dispatch: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -89,8 +90,7 @@ class ActivityTimeGraph extends React.Component {
     }
 
     isDataDefined() {
-        return (typeof this.props.actTimes.times !== 'undefined'
-            && this.props.actTimes.times.length > 0);
+        return !!this.props.actTimes.times;
     }
 
     render() {

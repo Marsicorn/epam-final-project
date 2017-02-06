@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
 import 'jquery-ui/ui/widgets/datepicker';
@@ -24,6 +24,10 @@ const OPTIONS = {
 };
 
 class DatePickers extends React.Component {
+    static PropTypes = {
+        dispatch: PropTypes.func.isRequired
+    };
+
     constructor(props) {
         super(props);
 

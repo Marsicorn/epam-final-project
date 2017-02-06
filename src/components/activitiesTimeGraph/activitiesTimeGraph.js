@@ -12,7 +12,8 @@ import { PRODUCTIVE, DISTRACTING  } from '../constants';
 
 class ActivitiesTimeGraph extends React.Component{
     static PropTypes = {
-        activityType: PropTypes.string
+        activityType: PropTypes.string,
+        dispatch: PropTypes.func.isRequired
     };
 
     constructor(props) {
@@ -51,8 +52,7 @@ class ActivitiesTimeGraph extends React.Component{
     }
 
     isActsTimeSeriesDefined(props) {
-        return (typeof props.actsTimeSeries !== 'undefined' &&
-            props.actsTimeSeries.length !== 0);
+        return !!props.actsTimeSeries;
     }
 
 
@@ -114,8 +114,7 @@ class ActivitiesTimeGraph extends React.Component{
     }
 
     isActivityTypeDefined() {
-        return (typeof this.props.activityType !== 'undefined' &&
-            this.props.activityType.length > 0);
+        return !!this.props.activityType;
     }
 
     render() {

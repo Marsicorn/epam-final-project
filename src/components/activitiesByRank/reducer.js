@@ -1,10 +1,9 @@
 import { SET_ACTS_BY_RANK } from './actions';
+import { PRODUCTIVE, DISTRACTING } from '../constants';
 
-
-const initialState = {
-    productiveList: [],
-    distractingList: []
-};
+const initialState = {};
+initialState[PRODUCTIVE] = [];
+initialState[DISTRACTING] = [];
 
 function activitiesByRankReducer(state = initialState, action) {
     switch (action.type) {

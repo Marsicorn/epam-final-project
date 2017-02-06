@@ -6,6 +6,7 @@ import {
     ActsByRankRequest,
     ActivityByHourRequest
 } from './fetchData';
+import { PRODUCTIVE, DISTRACTING } from '../components/constants';
 
 const BY_DAY = 'BY_DAY';
 const BY_HOUR = 'BY_HOUR';
@@ -205,12 +206,13 @@ class ActivitiesByRankData extends Data{
         const data = super.format(jsonData);
         if (typeof data === 'undefined') return [];
 
-        let productiveList = [];
-        let distractingList = [];
+        let lists = {};
+        lists[PRODUCTIVE] = [];
+        lists[DISTRACTING] = [];
 
         let i = 0;
         let item;
-        while ((productiveList.length < 5 || distractingList.length < 5) && data.rows.length > i) {
+        while ((lists[PRODUCTIVE].length < 5 || lists[DISTRACTING].length < 5) && data.rows.length > i) {
             item = data.rows[i++];
 
             let activity = {
@@ -221,18 +223,14 @@ class ActivitiesByRankData extends Data{
 
             if (activity.time.length > 1) {
                 if (activity.level > 0) {
-                    if (productiveList.length < 5)
-                        productiveList.push(activity);
+                    if (lists[PRODUCTIVE].length < 5)
+                        lists[PRODUCTIVE].push(activity);
 
-                } else if (distractingList.length < 5)
-                    distractingList.push(activity);
+                } else if (lists[DISTRACTING].length < 5)
+                    lists[DISTRACTING].push(activity);
             }
         }
-
-        return {
-            productiveList,
-            distractingList
-        };
+        return lists;
     }
 }
 

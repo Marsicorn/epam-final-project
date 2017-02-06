@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindAll } from 'lodash';
 import Slice from './summaryChartSlice';
@@ -8,6 +8,10 @@ import './index.css';
 
 
 class SummaryCircleChart extends React.Component {
+    static PropTypes = {
+        dispatch: PropTypes.func.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -49,10 +53,7 @@ class SummaryCircleChart extends React.Component {
     }
 
     isDataDefined() {
-        return (
-            typeof this.props.summary.productivity !== 'undefined'
-            && this.props.summary.productivity.length > 0
-        )
+        return !!this.props.summary.productivity;
     }
 
     render() {
