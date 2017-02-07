@@ -47,6 +47,7 @@ class ActivityTimeGraph extends React.Component {
 
 	componentWillUnmount() {
 		this._mounted = false;
+		window.removeEventListener('resize', this.updateIfMounted);
 	}
 
 	shouldComponentUpdate(nextProps) {
