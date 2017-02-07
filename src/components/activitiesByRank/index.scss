@@ -7,7 +7,7 @@
   border: none;
   border-radius: 10px;
   list-style: none;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   color: ivory;
   font-size: 14px;
   line-height: 2em;
@@ -17,11 +17,11 @@
   order: 1;
 
   & > .activity .actName {
-    color: #7A9A75;
+	color: #7A9A75;
 
-    &:hover {
-      color: lightgray;
-    }
+	&:hover {
+	  color: lightgray;
+	}
   }
 }
 
@@ -29,11 +29,11 @@
   order: 2;
 
   & > .activity .actName {
-    color: #F54F53;
+	color: #F54F53;
 
-    &:hover {
-      color: lightgray;
-    }
+	&:hover {
+	  color: lightgray;
+	}
   }
 }
 
@@ -43,7 +43,7 @@
   margin: 0;
 
   &:hover {
-    cursor: pointer;
+	cursor: pointer;
   }
 }
 

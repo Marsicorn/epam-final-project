@@ -1,4 +1,4 @@
-import { PRODUCTIVE, DISTRACTING } from '../components/constants';
+import {PRODUCTIVE, DISTRACTING} from '../components/constants';
 
 const HOME_PATH = '/';
 const DETAILED_SUMMARY = '/details';
@@ -8,9 +8,9 @@ const ACTIVITY_SUM = './activity';
 
 
 export {
-    HOME_PATH,
-    DETAILED_SUMMARY,
-    PRODUCTIVE_SUM,
-    DISTRACTING_SUM,
-    ACTIVITY_SUM
+	HOME_PATH,
+	DETAILED_SUMMARY,
+	PRODUCTIVE_SUM,
+	DISTRACTING_SUM,
+	ACTIVITY_SUM
 };

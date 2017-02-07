@@ -1,20 +1,20 @@
-import { SET_SUMMARY } from './actions';
+import {SET_SUMMARY} from './actions';
 
 
 const initialState = {};
 
 function summaryCircleChartReducer(state = initialState, action) {
-    switch (action.type) {
-        case SET_SUMMARY:
-            return action.summary;
+	switch (action.type) {
+		case SET_SUMMARY:
+			return action.summary;
 
-        default:
-            return state;
-    }
+		default:
+			return state;
+	}
 }
 
 const SummaryCircleChartReducer = {
-    summary: summaryCircleChartReducer
+	summary: summaryCircleChartReducer
 };
 
 

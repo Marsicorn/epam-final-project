@@ -3,7 +3,7 @@
   top: 0;
   bottom: 0;
   left: 0;
-  right:0;
+  right: 0;
   margin: 0;
   min-height: fit-content;
   background-image: linear-gradient(to top, #25373D, #282830);
@@ -17,7 +17,7 @@
   top: 50%;
 
   &:hover {
-    cursor: pointer;
+	cursor: pointer;
   }
 }
 
@@ -27,7 +27,7 @@
   font-size: 16px;
 
   &:hover {
-    cursor: default;
+	cursor: default;
   }
 }
 
@@ -38,9 +38,9 @@
   font-weight: bold;
 
   &:hover {
-    color: lightgray;
-    text-decoration: none;
-    background-color: #F54F53;
+	color: lightgray;
+	text-decoration: none;
+	background-color: #F54F53;
   }
 }
 

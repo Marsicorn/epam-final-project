@@ -1,123 +1,129 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { bindAll } from 'lodash';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
-import { setActivityTimes } from './actions';
-import { ChartTooltip } from '../chartTooltip';
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+import {bindAll} from 'lodash';
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid} from 'recharts';
+import {setActivityTimes} from './actions';
+import {ChartTooltip} from '../chartTooltip';
 import ProductivityLevels from '../../utils/productivityLevels';
-import { PRODUCTIVE } from '../constants';
+import {PRODUCTIVE} from '../constants';
 
 
 class ActivityTimeGraph extends React.Component {
-    static PropTypes = {
-        activityName: PropTypes.string.isRequired,
-        activityType: PropTypes.string.isRequired,
-        dispatch: PropTypes.func.isRequired
-    };
+	static PropTypes = {
+		activityName: PropTypes.string.isRequired,
+		activityType: PropTypes.string.isRequired,
+		dispatch: PropTypes.func.isRequired
+	};
 
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        bindAll(this, ['renderBarChart', 'isDataDefined', 'shouldGetNewData']);
-    }
+		bindAll(this, [
+			'renderBarChart',
+			'isDataDefined',
+			'shouldGetNewData',
+			'updateIfMounted'
+		]);
+	}
 
-    componentDidMount() {
-        if (this.isActivityDefined(this.props)) {
-            this.props.dispatch( setActivityTimes(
-                this.props.actTimes.activityName,
-                this.props.actTimes.activityType,
-                this.props.date) );
-        }
-        this._mounted = true;
-        window.addEventListener('resize', () => {
-            if (this._mounted)
-                this.forceUpdate();
-        });
-    }
+	componentDidMount() {
+		if (this.isActivityDefined(this.props)) {
+			this.props.dispatch(setActivityTimes(
+				this.props.actTimes.activityName,
+				this.props.actTimes.activityType,
+				this.props.date));
+		}
+		this._mounted = true;
+		window.addEventListener('resize', this.updateIfMounted);
+	}
 
-    isActivityDefined(props) {
-        return (props.actTimes.activityName.length > 0);
-    }
+	updateIfMounted() {
+		if (this._mounted) this.forceUpdate();
+	}
 
-    componentWillUnmount() {
-        this._mounted = false;
-    }
+	isActivityDefined(props) {
+		return (props.actTimes.activityName.length > 0);
+	}
 
-    shouldComponentUpdate(nextProps) {
-        if (this.shouldGetNewData(nextProps)) {
-            this.props.dispatch( setActivityTimes(
-                nextProps.actTimes.activityName,
-                nextProps.actTimes.activityType,
-                nextProps.date) );
-            return false;
-        }
-        return true;
-    }
+	componentWillUnmount() {
+		this._mounted = false;
+	}
 
-    shouldGetNewData(nextProps) {
-        return ((nextProps.date !== this.props.date) && this.isActivityDefined(nextProps))
-            || ((typeof nextProps.date !== 'undefined')
-            && (nextProps.actTimes.activityName !== this.props.actTimes.activityName));
-    }
+	shouldComponentUpdate(nextProps) {
+		if (this.shouldGetNewData(nextProps)) {
+			this.props.dispatch(setActivityTimes(
+				nextProps.actTimes.activityName,
+				nextProps.actTimes.activityType,
+				nextProps.date));
+			return false;
+		}
+		return true;
+	}
 
-    renderBarChart() {
-        const CHART_WIDTH = document.body.clientWidth * 0.9;
-        const CHART_HEIGHT = CHART_WIDTH * 0.3;
+	shouldGetNewData(nextProps) {
+		return ((nextProps.date !== this.props.date) && this.isActivityDefined(nextProps))
+			|| ((typeof nextProps.date !== 'undefined')
+			&& (nextProps.actTimes.activityName !== this.props.actTimes.activityName));
+	}
 
-        return (
-            <BarChart
-                width={ CHART_WIDTH }
-                height={ CHART_HEIGHT }
-                stackOffset='sign'
-                data={ this.props.actTimes.times } >
-                <XAxis dataKey='name' />
-                <YAxis />
-                <CartesianGrid
-                    strokeDasharray='2 5'
-                    stroke='rgba(255,255,255,0.3)' />
-                { ChartTooltip() }
-                <Bar
-                    stackId='stack'
-                    dataKey='time'
-                    stroke='#8884d8'
-                    fill={ this.props.actTimes.activityType === PRODUCTIVE ?
-                        ProductivityLevels.getLevelColor({key: 2}) :
-                        ProductivityLevels.getLevelColor({key: -2})
-                    }
-                    isAnimationActive={ false } />
-            </BarChart>
-        );
-    }
+	renderBarChart() {
+		const CHART_WIDTH = document.body.clientWidth * 0.9;
+		const CHART_HEIGHT = CHART_WIDTH * 0.3;
 
-    isDataDefined() {
-        return !!this.props.actTimes.times;
-    }
+		return (
+			<BarChart
+				width={ CHART_WIDTH }
+				height={ CHART_HEIGHT }
+				stackOffset='sign'
+				data={ this.props.actTimes.times }>
+				<XAxis dataKey='name'/>
+				<YAxis />
+				<CartesianGrid
+					strokeDasharray='2 5'
+					stroke='rgba(255,255,255,0.3)'/>
+				{ ChartTooltip() }
+				<Bar
+					stackId='stack'
+					dataKey='time'
+					stroke='#8884d8'
+					fill={ this.props.actTimes.activityType === PRODUCTIVE ?
+						ProductivityLevels.getLevelColor({key: 2}) :
+						ProductivityLevels.getLevelColor({key: -2})
+					}
+					isAnimationActive={ false }/>
+			</BarChart>
+		);
+	}
 
-    render() {
-        return (
-            <div>
-                <div className='activityName'>
-                    { this.props.actTimes.activityName }
-                </div>
-                { this.isDataDefined() ?
-                    <div className='chart'>
-                        { this.renderBarChart() }
-                    </div>
-                    :
-                    <div className='message'>
-                        No data registered
-                    </div>
-                }
-            </div>
-        );
-    }
+	isDataDefined() {
+		return !!this.props.actTimes.times;
+	}
+
+	render() {
+		return (
+			<div>
+				<div className='activityName'>
+					{ this.props.actTimes.activityName }
+				</div>
+				{ this.isDataDefined() ?
+					<div className='chart'>
+						{ this.renderBarChart() }
+					</div>
+					:
+					<div className='message'>
+						No data registered
+					</div>
+				}
+			</div>
+		);
+	}
 }
 
 function mapStateToProps(state) {
-    return {
-        actTimes: state.actTimes,
-        date: state.date
-    };
+	return {
+		actTimes: state.actTimes,
+		date: state.date
+	};
 }
 
 
