@@ -1,6 +1,6 @@
-import React from 'react';
-import {Route} from 'react-router';
-import HomePage from './home';
+import React from "react";
+import {Route} from "react-router";
+import HomePage from "./home";
 
 
 export default (

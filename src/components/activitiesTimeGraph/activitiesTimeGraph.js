@@ -1,13 +1,13 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {browserHistory} from 'react-router';
-import {bindAll} from 'lodash';
-import {AreaChart, Area, XAxis, YAxis, CartesianGrid} from 'recharts';
-import {setDetailedSummary} from './actions';
-import {ChartTooltip} from '../chartTooltip';
-import ProductivityLevels from '../../utils/productivityLevels';
-import {PRODUCTIVE_SUM, DISTRACTING_SUM} from '../../pages/paths';
-import {PRODUCTIVE, DISTRACTING} from '../constants';
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {browserHistory} from "react-router";
+import {bindAll} from "lodash";
+import {AreaChart, Area, XAxis, YAxis, CartesianGrid} from "recharts";
+import {setDetailedSummary} from "./actions";
+import {ChartTooltip} from "../chartTooltip";
+import ProductivityLevels from "../../utils/productivityLevels";
+import {PRODUCTIVE_SUM, DISTRACTING_SUM} from "../../pages/paths";
+import {PRODUCTIVE, DISTRACTING} from "../constants";
 
 
 class ActivitiesTimeGraph extends React.Component {
@@ -59,7 +59,8 @@ class ActivitiesTimeGraph extends React.Component {
 	}
 
 	isActsTimeSeriesDefined(props) {
-		return !!props.actsTimeSeries;
+		return (typeof props.actsTimeSeries !== 'undefined' &&
+		props.actsTimeSeries.length > 0);
 	}
 
 
@@ -137,11 +138,8 @@ class ActivitiesTimeGraph extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		actsTimeSeries: state.actsTimeSeries,
-		date: state.date
-	};
+function mapStateToProps({actsTimeSeries, date}) {
+	return {actsTimeSeries, date};
 }
 
 

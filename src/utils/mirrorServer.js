@@ -8,9 +8,12 @@ const server = new http.Server();
 server.listen(LOCAL_SERVER.PORT, LOCAL_SERVER.HOST);
 console.log('Run mirror server on', LOCAL_SERVER.HOST, ':', LOCAL_SERVER.PORT);
 
+
+
 server.on('request', (request, response) => {
 	response.setHeader('Access-Control-Allow-Origin', '*');
 	let path = '/anapi/' + request.url.substring(1);
+	console.log(request.url);
 
 	const options = {
 		host: REMOTE_SERVER.HOST,

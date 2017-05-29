@@ -1,5 +1,6 @@
-import {ActivityByHourData, BY_DAY, BY_HOUR} from '../../utils/dataHolders';
-import {Loader} from '../../components/loader';
+import {ActivityByHourData} from "../../utils/dataHolders";
+import {BY_DAY, BY_HOUR} from "../../utils/config";
+import {Loader} from "../../components/loader";
 
 const SET_ACTIVITY_TIMES = 'SET_ACTIVITY_TIMES';
 const SET_ACTIVITY_NAME = 'SET_ACTIVITY_NAME';

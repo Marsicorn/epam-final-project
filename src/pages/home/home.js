@@ -1,7 +1,7 @@
-import React from 'react';
-import {Link} from 'react-router';
-import {SummaryCircleChart, Navigation} from '../../components';
-import {HOME_PATH, DETAILED_SUMMARY} from '../paths';
+import React from "react";
+import {Link} from "react-router";
+import {SummaryCircleChart, Navigation} from "../../components";
+import {HOME_PATH, DETAILED_SUMMARY} from "../paths";
 
 
 export default class HomePage extends React.Component {
@@ -11,7 +11,7 @@ export default class HomePage extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="content">
 				<SummaryCircleChart />
 
 				<div className='navigation'>

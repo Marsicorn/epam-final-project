@@ -1,4 +1,4 @@
-import {SET_SUMMARY} from './actions';
+import {SET_SUMMARY} from "./actions";
 
 
 const initialState = {};

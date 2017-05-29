@@ -1,8 +1,8 @@
-import React from 'react';
-import {browserHistory} from 'react-router';
-import {ActivityTimeGraph, Navigation} from '../../components';
-import {ACTIVITY_SUM} from '../paths';
-import './index.css';
+import React from "react";
+import {browserHistory} from "react-router";
+import {ActivityTimeGraph, Navigation} from "../../components";
+import {ACTIVITY_SUM} from "../paths";
+import "./index.css";
 
 export default class ActivitySummaryPage extends React.Component {
 	static getPath() {

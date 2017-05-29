@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindAll} from 'lodash';
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid} from 'recharts';
-import {setActivityTimes} from './actions';
-import {ChartTooltip} from '../chartTooltip';
-import ProductivityLevels from '../../utils/productivityLevels';
-import {PRODUCTIVE} from '../constants';
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {bindAll} from "lodash";
+import {BarChart, Bar, XAxis, YAxis, CartesianGrid} from "recharts";
+import {setActivityTimes} from "./actions";
+import {ChartTooltip} from "../chartTooltip";
+import ProductivityLevels from "../../utils/productivityLevels";
+import {PRODUCTIVE} from "../constants";
 
 
 class ActivityTimeGraph extends React.Component {
@@ -120,11 +120,8 @@ class ActivityTimeGraph extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		actTimes: state.actTimes,
-		date: state.date
-	};
+function mapStateToProps({actTimes, date}) {
+	return {actTimes, date};
 }
 
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import {Tooltip} from 'recharts';
+import React from "react";
+import {Tooltip} from "recharts";
 
 export default function ChartTooltip() {
 	return (

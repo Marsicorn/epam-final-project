@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react';
-import {bindAll} from 'lodash';
-import {connect} from 'react-redux';
-import {browserHistory} from 'react-router';
-import {setActivityName} from '../activityTimeGraph/actions';
-import {setActivitiesByRank} from './actions';
-import {ACTIVITY_SUM} from '../../pages/paths';
-import './index.css';
+import React, {PropTypes} from "react";
+import {bindAll} from "lodash";
+import {connect} from "react-redux";
+import {browserHistory} from "react-router";
+import {setActivityName} from "../activityTimeGraph/actions";
+import {setActivitiesByRank} from "./actions";
+import {ACTIVITY_SUM} from "../../pages/paths";
+import "./index.css";
 
 
 class ActivitiesByRankLists extends React.Component {
@@ -80,11 +80,8 @@ class ActivitiesByRankLists extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		activitiesByRank: state.activitiesByRank,
-		date: state.date
-	};
+function mapStateToProps({activitiesByRank, date}) {
+	return {activitiesByRank, date};
 }
 
 

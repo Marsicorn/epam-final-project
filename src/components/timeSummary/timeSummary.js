@@ -1,6 +1,6 @@
-import React, {PropTypes}  from 'react';
-import {connect} from 'react-redux';
-import {setTime} from './actions';
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {setTime} from "./actions";
 
 
 class TimeSummary extends React.Component {
@@ -24,11 +24,8 @@ class TimeSummary extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		time: state.time,
-		date: state.date
-	};
+function mapStateToProps({time, date}) {
+	return {time, date};
 }
 
 

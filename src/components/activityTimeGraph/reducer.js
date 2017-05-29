@@ -1,4 +1,4 @@
-import {SET_ACTIVITY_TIMES, SET_ACTIVITY_NAME} from './actions';
+import {SET_ACTIVITY_TIMES, SET_ACTIVITY_NAME} from "./actions";
 
 
 const initialState = {

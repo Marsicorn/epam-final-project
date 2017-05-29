@@ -1,8 +1,8 @@
-import $ from 'jquery';
-import {LOCAL_SERVER} from './constants';
+import $ from "jquery";
+import {LOCAL_SERVER} from "./constants";
 
 
-const API_KEY = 'B63kvXB8gGg6S4wYFCH3k0Zs04HsOyBj6A8L649L';
+const API_KEY = 'B631xmuQgDSrSgbgHtjwYZbbRv4Bdk8ImdCkhYzk';
 
 const RESTRICT_KIND = {
 	OVERVIEW: 'overview',

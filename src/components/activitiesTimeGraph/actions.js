@@ -1,5 +1,6 @@
-import {SummaryByHourData, BY_DAY, BY_HOUR} from '../../utils/dataHolders';
-import {Loader} from '../../components/loader';
+import {SummaryByHourData} from "../../utils/dataHolders";
+import {BY_DAY, BY_HOUR} from "../../utils/config";
+import {Loader} from "../../components/loader";
 
 
 const SET_DETAILED_SUMMARY = 'SET_SUMMARY_BY_HOUR';

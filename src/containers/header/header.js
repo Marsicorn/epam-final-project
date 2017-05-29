@@ -1,8 +1,8 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {TimeSummary, DatePickers, Loader} from '../../components';
-import {updateDate} from './actions';
-import './index.css';
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {TimeSummary, DatePickers, Loader} from "../../components";
+import {updateDate} from "./actions";
+import "./index.css";
 
 class Header extends React.Component {
 	static PropTypes = {

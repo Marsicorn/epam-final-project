@@ -1,9 +1,9 @@
-import React from 'react';
-import {browserHistory} from 'react-router';
-import {ActivitiesTimeGraph, ActivitiesByRankLists, Navigation} from '../../components';
-import {DISTRACTING, PRODUCTIVE} from '../../components/constants';
-import {DETAILED_SUMMARY} from '../../pages/paths';
-import './index.css'
+import React from "react";
+import {browserHistory} from "react-router";
+import {ActivitiesTimeGraph, ActivitiesByRankLists, Navigation} from "../../components";
+import {DISTRACTING, PRODUCTIVE} from "../../components/constants";
+import {DETAILED_SUMMARY} from "../../pages/paths";
+import "./index.css";
 
 export default class DetailedSummaryPage extends React.Component {
 	static getPath() {

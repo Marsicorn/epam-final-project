@@ -1,5 +1,5 @@
-import SummaryCircleChart from './summaryCircleChart';
-import SummaryCircleChartReducer from './reducer';
+import SummaryCircleChart from "./summaryCircleChart";
+import SummaryCircleChartReducer from "./reducer";
 
 export {
 	SummaryCircleChart,

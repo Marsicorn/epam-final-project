@@ -1,4 +1,4 @@
-import ChartTooltip from './chartTooltip';
+import ChartTooltip from "./chartTooltip";
 
 export {
 	ChartTooltip

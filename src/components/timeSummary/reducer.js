@@ -1,4 +1,4 @@
-import {SET_TIME} from './actions';
+import {SET_TIME} from "./actions";
 
 
 const initialState = {

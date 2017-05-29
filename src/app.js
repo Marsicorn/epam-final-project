@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-import {Header} from '../src/containers';
+import React, {PropTypes} from "react";
+import {Header} from "../src/containers";
 
 export default class App extends React.Component {
 	static propTypes = {

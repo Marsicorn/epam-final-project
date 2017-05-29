@@ -1,6 +1,6 @@
-import React from 'react';
-import {Link} from 'react-router';
-import {HOME_PATH} from '../paths';
+import React from "react";
+import {Link} from "react-router";
+import {HOME_PATH} from "../paths";
 
 
 export default function ErrorPage() {

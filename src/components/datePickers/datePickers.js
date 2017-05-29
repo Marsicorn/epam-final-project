@@ -1,9 +1,10 @@
-import React, {PropTypes} from 'react';
-import $ from 'jquery';
-import 'jquery-ui/ui/widgets/datepicker';
-import {bindAll} from 'lodash';
-import moment from 'moment';
-import './index.css';
+import React, {PropTypes} from "react";
+import $ from "jquery";
+import "jquery-ui/ui/widgets/datepicker";
+import {bindAll} from "lodash";
+import moment from "moment";
+import "./index.css";
+import "jquery-ui/themes/base/datepicker.css";
 
 
 const OPTIONS = {

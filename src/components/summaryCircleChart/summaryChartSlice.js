@@ -1,9 +1,9 @@
-import React from 'react';
-import {browserHistory} from 'react-router';
-import {bindAll} from 'lodash';
-import ProductivityLevels from '../../utils/productivityLevels';
-import {OUTER_CHART_RADIUS, INNER_CHART_RADIUS, SCALE_PARAM} from './constants';
-import {PRODUCTIVE_SUM, DISTRACTING_SUM} from '../../pages/paths';
+import React from "react";
+import {browserHistory} from "react-router";
+import {bindAll} from "lodash";
+import ProductivityLevels from "../../utils/productivityLevels";
+import {OUTER_CHART_RADIUS, INNER_CHART_RADIUS, SCALE_PARAM} from "./constants";
+import {PRODUCTIVE_SUM, DISTRACTING_SUM} from "../../pages/paths";
 
 
 class Slice extends React.Component {

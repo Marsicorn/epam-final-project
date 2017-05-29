@@ -1,10 +1,10 @@
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindAll} from 'lodash';
-import Slice from './summaryChartSlice';
-import {setSummary} from './actions';
-import {CHART_SIZE, TEXT_SIZE} from './constants';
-import './index.css';
+import React, {PropTypes} from "react";
+import {connect} from "react-redux";
+import {bindAll} from "lodash";
+import Slice from "./summaryChartSlice";
+import {setSummary} from "./actions";
+import {CHART_SIZE, TEXT_SIZE} from "./constants";
+import "./index.css";
 
 
 class SummaryCircleChart extends React.Component {
@@ -88,11 +88,8 @@ class SummaryCircleChart extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		summary: state.summary,
-		date: state.date
-	};
+function mapStateToProps({summary, date}) {
+	return {summary, date};
 }
 
 

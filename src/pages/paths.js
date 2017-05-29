@@ -1,4 +1,4 @@
-import {PRODUCTIVE, DISTRACTING} from '../components/constants';
+import {PRODUCTIVE, DISTRACTING} from "../components/constants";
 
 const HOME_PATH = '/';
 const DETAILED_SUMMARY = '/details';

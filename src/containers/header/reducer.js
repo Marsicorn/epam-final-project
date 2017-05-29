@@ -1,4 +1,4 @@
-import {UPDATE_DATE} from './actions';
+import {UPDATE_DATE} from "./actions";
 
 
 const initialState = {

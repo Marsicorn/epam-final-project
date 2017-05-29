@@ -1,5 +1,5 @@
-import {SummaryTimeData} from '../../utils/dataHolders';
-import {Loader} from '../../components/loader';
+import {SummaryTimeData} from "../../utils/dataHolders";
+import {Loader} from "../../components/loader";
 
 
 const SET_TIME = 'SET_TIME';

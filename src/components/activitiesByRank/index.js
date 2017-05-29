@@ -1,5 +1,5 @@
-import ActivitiesByRankLists from './activitiesByRank';
-import ActivitiesByRankReducer from './reducer';
+import ActivitiesByRankLists from "./activitiesByRank";
+import ActivitiesByRankReducer from "./reducer";
 
 export {
 	ActivitiesByRankLists,

@@ -1,5 +1,5 @@
-import {SummaryData} from '../../utils/dataHolders';
-import {Loader} from '../../components/loader';
+import {SummaryData} from "../../utils/dataHolders";
+import {Loader} from "../../components/loader";
 
 
 const SET_SUMMARY = 'SET_SUMMARY';
